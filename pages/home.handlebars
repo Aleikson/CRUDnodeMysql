@@ -1,0 +1,12 @@
+<h1 action="/">My List</h1>
+
+{{#each posts}}
+
+<h1>{{tittle}}</h1>
+<p>{{content}}</p>
+<a href="/delete/{{id}}">
+    <button>Delete</button>
+</a>
+<hr>
+
+{{/each}}
