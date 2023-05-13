@@ -24,7 +24,7 @@ app.get('/form', function (req, res) {
 app.post('/form', function (req, res) {
     Post.create({
         tittle: req.body.tittle,
-        content: req.body.tittle
+        content: req.body.content
     }).then(function () {
         res.redirect('/')
     }).catch(function (err) {
