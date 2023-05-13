@@ -1,0 +1,45 @@
+<form class="my-form" action="/form" method="POST">
+    <p>Tittle</p>
+    <input type="text" name="tittle">
+    <p>content</p>
+    <textarea name="content"></textarea>
+    <button type="submit">Post</button>
+</form>
+
+<style>
+    .my-form {
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .my-form p {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .my-form input[type="text"],
+    .my-form textarea {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        resize: none;
+    }
+
+    .my-form button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .my-form button[type="submit"]:hover {
+        background-color: #3e8e41;
+    }
+</style>

@@ -1,0 +1,50 @@
+<h1 class="page-title" action="/">My List</h1>
+
+{{#each posts}}
+
+<div class="post" id="{{id}}">
+    <h2 class="post-title">{{tittle}}</h2>
+    <p class="post-content">{{content}}</p>
+    <a href="/delete/{{id}}">
+        <button class="post-delete-button">Delete</button>
+    </a>
+</div>
+
+{{/each}}
+
+<style>
+    .page-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .post {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .post-title {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .post-content {
+        font-size: 16px;
+        margin-bottom: 10px;
+        word-wrap: break-word;
+    }
+
+    .post-delete-button {
+        display: inline-block;
+        background-color: red;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+        text-decoration: none;
+    }
+
+    .post-delete-button:hover {
+        background-color: darkred;
+    }
+</style>
