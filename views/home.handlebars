@@ -1,16 +1,18 @@
 <h1 class="page-title" action="/">My List</h1>
 
 {{#each posts}}
-
 <div class="post" id="{{id}}">
-    <h2 class="post-title">{{tittle}}</h2>
+    <h2 class="post-title">{{title}}</h2>
     <p class="post-content">{{content}}</p>
+    <a href="/edit/{{id}}">
+        <button class="post-edit-button">Edit</button>
+    </a>
     <a href="/delete/{{id}}">
         <button class="post-delete-button">Delete</button>
     </a>
 </div>
-
 {{/each}}
+
 
 <style>
     .page-title {
@@ -44,7 +46,12 @@
         text-decoration: none;
     }
 
-    .post-delete-button:hover {
-        background-color: darkred;
+    .post-edit-button {
+        display: inline-block;
+        background-color: blue;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+        text-decoration: none;
     }
 </style>

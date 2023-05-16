@@ -22,15 +22,26 @@ app.get('/form', function (req, res) {
 })
 
 app.post('/form', function (req, res) {
-    Post.create({
-        tittle: req.body.tittle,
+    const postId = req.body.id;
+    const postValues = {
+        title: req.body.title,
         content: req.body.content
-    }).then(function () {
-        res.redirect('/')
-    }).catch(function (err) {
-        res.send('NOT RUNNIN ' + err)
-    })
-})
+    };
+
+    if (postId) {
+        Post.update(postValues, { where: { id: postId } }).then(function () {
+            res.redirect('/');
+        }).catch(function (err) {
+            res.send('ERROR WHILE UPDATING POST: ' + err);
+        });
+    } else {
+        Post.create(postValues).then(function () {
+            res.redirect('/');
+        }).catch(function (err) {
+            res.send('ERROR WHILE CREATING POST: ' + err);
+        });
+    }
+});
 
 app.get('/delete/:id', function (req, res) {
     Post.destroy({ where: { 'id': req.params.id } }).then(function () {
@@ -39,6 +50,15 @@ app.get('/delete/:id', function (req, res) {
         res.send('ERROR WHILE WAS DELETING')
     })
 })
+
+app.get('/edit/:id', function (req, res) {
+    const postId = req.params.id;
+    Post.findByPk(postId).then(function (post) {
+        res.render('forms', { post: post });
+    }).catch(function (error) {
+        res.send('ERROR WHILE RETRIEVING POST');
+    });
+});
 
 app.listen(8080, function () {
     console.log('Running')

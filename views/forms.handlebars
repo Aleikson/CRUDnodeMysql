@@ -1,8 +1,11 @@
 <form class="my-form" action="/form" method="POST">
-    <p>Tittle</p>
-    <input type="text" name="tittle">
-    <p>content</p>
-    <textarea name="content"></textarea>
+    {{#if post}}
+        <input type="hidden" name="id" value="{{post.id}}">
+    {{/if}}
+    <p>Title</p>
+    <input type="text" name="title" value="{{post.title}}">
+    <p>Content</p>
+    <textarea name="content">{{post.content}}</textarea>
     <button type="submit">Post</button>
 </form>
 
