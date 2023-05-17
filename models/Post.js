@@ -1,7 +1,7 @@
 const db = require('./db');
 
-const Post = db.NewSequelize.define('posts', {
-    tittle: {
+const Post = db.sequelize.define('posts', {
+    title: {
         type: db.Sequelize.STRING
     },
     content: {
